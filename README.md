@@ -1,82 +1,85 @@
-# AUTOMATIC-TIMETABLE-GENERATOR
 Automatic Timetable Generator
 
-1. Project Overview
-The Automatic Timetable Generator is a web-based application designed to automate the scheduling process for educational institutions. It optimizes timetable creation by considering various constraints such as teacher availability, subject allotment, and classroom occupancy.
+Introduction
+Managing class schedules can be a headache, especially when trying to avoid conflicts and ensure fairness. The Automatic Timetable Generator is here to solve that! This web-based tool automates the scheduling of classes, ensuring that everything runs smoothly with minimal manual effort. It uses smart algorithms to generate timetables efficiently.
 
-2. Features
-•	User registration and login
-•	User authentication with JWT
-•	Role-based access (Admin, Faculty, Student)
-•	Automated timetable generation using the Greedy Algorithm
-•	Conflict resolution for overlapping schedules
-•	Database-driven dynamic data handling
-•	Interactive UI for viewing, updating, and managing timetables
-•	Export timetable as PDF or Excel
+What This Tool Offers
+•	Easy Authentication – Secure JWT-based login/signup
+•	Role-Based Access – Different permissions for Admins, Teachers, and Students
+•	Smart Scheduling – Uses a Greedy Algorithm or an AI-based approach to create optimized timetables
+•	Conflict-Free Timetable – Prevents class overlaps and ensures fair distribution
+•	User-Friendly Interface – Simple web UI for managing schedules
+•	Export Options – Download the timetable as PDF or Excel
 
-3. Tech Stack
-  •	Backend: Flask (Python)
-  •	Database: PostgreSQL
-  •	Frontend: HTML, CSS, JavaScript
-  •	Authentication: JWT
-  •	Algorithm: Greedy Algorithm 
+Tech Stack
+Backend:
+•	Flask (Python) – Handles the logic and API requests
+•	PostgreSQL – Stores all timetable data
+•	SQLAlchemy – Makes database interactions smooth
+•	JWT (JSON Web Token) – Keeps authentication secure
 
-4. System Architecture
-  1.Frontend: The user interface allows admins to configure constraints, faculty to view schedules, and students to access timetables.
-  2.Backend: Handles authentication, processes scheduling logic, and communicates with the database.
-  3.Database: Stores user data, timetable information, faculty availability, and constraints.
-  4.Algorithm Engine: Implements the Greedy Algorithm to optimize and generate an efficient timetable.
+Frontend:
+•	HTML, CSS, JavaScript – Simple yet effective UI
+•	Fetch API – Handles smooth data updates
 
-5. Installation & Setup
+Other Tools:
+•	Flask-Migrate – Manages database changes
+•	Git & GitHub – Version control
+•	Virtual Environment (venv) – Keeps dependencies organized
 
-Prerequisites
-  •	Python 3.x
-  •	PostgreSQL
-  •	HTML, CSS and JavaScript 
-  •	Virtual Environment 
-  •	Flask
+How to Set Up
+Prerequisites:
+•	Install Python (3.x)
+•	Set up PostgreSQL
+•	Install Git
 
-Steps
-  1. Clone the Repository
-     git clone <repository-url>
-     cd automatic-timetable-generator
+Steps:
+1.	Clone the Repository 
 
-  2. Set Up a Virtual Environment
-     python -m
-     venv\Scripts\activate
+2.	git clone https://github.com/yourusername/automatic-timetable-generator.git
 
-  3. Install Dependencies
-      pip install -r requirements.txt
+3.	cd automatic-timetable-generator/backend
 
-  4. Configure the Database
-     •Create a PostgreSQL database
-     •Update config.py with database credentials
+4.	Set Up a Virtual Environment 
 
-  5. Start the Flask Server
-      flask run
+5.	python -m venv venv
 
+6.	venv\Scripts\activate 
+ 
+7.	Install Required Packages
+ 
+8.	pip install -r requirements.txt
 
-  6. API Endpoints
-      Method	Endpoint	Description
-     POST	/register	User registration
-     POST	/login	User authentication
-     GET	/timetable	Retrieve generated timetable
-     POST	/generate	Trigger timetable generation
+9.	Set Up Database Connection Edit your .env file with your database credentials: 
 
+10.	DATABASE_URL=postgresql://username:password@localhost/timetable_db
 
-  7. Timetable Generation Algorithm 
-     The scheduling algorithm follows these steps:
-        1.	Gather Input: Fetch faculty, subjects, and constraints from the database.
-        2.	Sort by Priority: Sort classes based on constraints (e.g., faculty preferences, subject difficulty).
-        3.	Slot Allocation: Assign time slots while resolving conflicts.
-        4.	Validate Constraints: Check for clashes and reallocate if necessary.
-        5.	Store & Display: Save the generated timetable and provide API access.
+11.	SECRET_KEY=your_secret_key
 
-8. Future Enhancements
- •Implement AI-based optimization (Genetic Algorithm)
- •Add drag-and-drop timetable editor
- •Integrate notifications for schedule updates
+12.	Run the Application 
 
-9. Conclusion
+13.	flask run
+
+API Endpoints Overview
+Authentication
+Endpoint       Method	   What It Does
+/register	      POST	   Create a new user account
+/login	        POST	   Generate an authentication token
+/logout	        GET	     Log out the user
+
+Timetable Management
+Endpoint	            Method	    What It Does
+/generate_timetable	   POST	      Creates a new timetable automatically
+/get_timetable	       GET	      Fetches the current timetable
+/update_timetable      PUT	      Allows modifications to the timetable
+/delete_timetable   	 DELETE	    Removes a timetable
+
+What’s Next?
+•	AI-powered scheduling for even smarter optimization
+•	Drag-and-drop timetable editing
+•	Mobile-friendly interface
+•	Email alerts for schedule changes
+
+Conclusion
 The Automatic Timetable Generator streamlines scheduling, reduces conflicts, and optimizes resource allocation. With a scalable design, it ensures efficiency for educational institutions.
 
